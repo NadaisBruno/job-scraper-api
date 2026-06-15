@@ -6,9 +6,11 @@ and provides filtering and pagination for querying the results.
 ## Features
 
     - Scrapes job offers
-    - Stores job offers in a local SQLite database using SQLALchemy ORM 
+    - Stores job offers in a local SQLite database using SQLAlchemy ORM 
     - Prevents duplicates of job offers
     - Provides filtering by title, location and company
+    - Supports pagination 
+    - Includes a streamlit interface to view and filter job offers
 
 ## Endpoint
 
@@ -28,9 +30,13 @@ and provides filtering and pagination for querying the results.
 
     uvicorn api:app --reload
 
-4 - Open the swagger documentation in your browser:
+4 - Open the Swagger documentation in your browser:
 
     http://127.0.0.1:8000/docs
+
+5 - Run streamlit to view the data in a web app
+    
+    streamlit run streamlit_app.py
 
 ## Technologies Used
 
@@ -40,6 +46,7 @@ and provides filtering and pagination for querying the results.
     - Requests
     - SQLite
     - SQLAlchemy
+    - Streamlit
     - Uvicorn
 
 

@@ -1,3 +1,5 @@
+# Este modulo tem como funcao pedir HTML ao net-empregos
+
 import requests
 from bs4 import BeautifulSoup
 from database import JobOffer, Session, job_exist
