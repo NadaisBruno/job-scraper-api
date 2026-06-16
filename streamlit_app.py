@@ -31,6 +31,15 @@ for chave, valor in filtros.items():
         # que o utilizador escreveu
         filtros_api[chave] = user_input
 
+# inserir paginacao no streamlit
+page = st.number_input("Insert the page", min_value=1, value=1)
+limit = st.number_input("Insert the limit", min_value=1, max_value=50, value=10)
+
+# adicionar page e limit ao dicionario filtros_api criando uma chave com o nome textual "page" e "limit" e
+# guarda la o valor da variavel page
+filtros_api["page"] = page
+filtros_api["limit"] = limit
+
 # request
 # Docs = https://requests.readthedocs.io/en/latest/user/quickstart/?utm_source=chatgpt.com
 response = requests.get(api_url, params=filtros_api, timeout=5)
