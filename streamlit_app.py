@@ -3,6 +3,8 @@
 
 import streamlit as st
 import requests
+from scraper import extract_data
+
 
 # app title
 st.title("Job Offers Dashboard")
@@ -11,6 +13,24 @@ st.title("Job Offers Dashboard")
 # em api.py(@app.get("/job_offers")
 api_url = "http://127.0.0.1:8000/job_offers"
 
+
+st.subheader("Scrape new job offers")
+scrape_keyword = st.text_input("Enter the job you want")
+scrape_city = st.text_input("Enter a city")
+run_scraper = st.button("Find job offers")
+# se o botao run_scraper foi clicado
+if run_scraper:
+    # se os campos nao foram preenchidos parar o programa
+    if not scrape_keyword or not scrape_city:
+        st.warning("You must enter a value")
+        st.stop()
+    with st.spinner("Wait a moment..."):
+        # senao correr a def extract_data do modulo scraper.py
+        extract_data(scrape_keyword, scrape_city)
+    st.success("Done")
+
+
+st.subheader("Filter saved job offers")
 # criamos um dicionário com os filtros disponiveis
 filtros = {
     "title": "Insert a title",
@@ -31,9 +51,9 @@ for chave, valor in filtros.items():
         # que o utilizador escreveu
         filtros_api[chave] = user_input
 
-# inserir paginacao no streamlit
-page = st.number_input("Insert the page", min_value=1, value=1)
-limit = st.number_input("Insert the limit", min_value=1, max_value=50, value=10)
+# inserir paginacao no streamlit com uma barra lateral(st.sidebar)
+page = st.sidebar.number_input("Insert the page", min_value=1, value=1)
+limit = st.sidebar.number_input("Insert the limit", min_value=1, max_value=50, value=10)
 
 # adicionar page e limit ao dicionario filtros_api criando uma chave com o nome textual "page" e "limit" e
 # guarda la o valor da variavel page
