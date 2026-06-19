@@ -10,7 +10,8 @@ and provides filtering and pagination for querying the results.
     - Prevents duplicates of job offers
     - Provides filtering by title, location and company
     - Supports pagination 
-    - Includes a streamlit interface to view and filter job offers with pagination support
+    - Includes a Streamlit interface to view and filter job offers with pagination support
+    - Includes a Streamlit dashboard with summary metrics for job offers found, repeated offers, new offers and invalid offers
 
 ## Endpoint
 
