@@ -26,8 +26,31 @@ if run_scraper:
         st.stop()
     with st.spinner("Wait a moment..."):
         # senao correr a def extract_data do modulo scraper.py
-        extract_data(scrape_keyword, scrape_city)
+        job_metrics = extract_data(scrape_keyword, scrape_city)
     st.success("Done")
+
+
+    with st.container(border=True):
+        st.markdown('''
+        :blue[**Scraping Summary**]
+        ''')
+
+        col1, col2, col3, col4 = st.columns(4)
+
+        with col1:
+            # label=texto visivel no ui // value=valor real vindo do dicionario
+            st.metric("Offers found", value=job_metrics["Offers_found"])
+
+        with col2:
+            st.metric("Offers repeated", value=job_metrics["Offers_repeated"])
+
+        with col3:
+            st.metric("New offers", value=job_metrics["New_offers"])
+
+        with col4:
+            st.metric("Invalid offers", value=job_metrics["Invalid_offers"])
+
+##
 
 
 st.subheader("Filter saved job offers")

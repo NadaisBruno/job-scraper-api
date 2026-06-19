@@ -1,4 +1,4 @@
-# Este modulo tem como funcao pedir HTML ao net-empregos
+# Este modulo tem como funcao pedir HTML ao `net-empregos
 
 import requests
 from bs4 import BeautifulSoup
@@ -121,4 +121,14 @@ def extract_data(keyword, city):
     # mostrar o total de vagas invalidas
     print("Total de vagas inválidas: ", contador_vagas_invalidas)
 
-
+    # criamos um dicionário para depois ser apresentado na ui do streamlit com as metricas dos contadores
+    # poderia usar listas ou tuplas para agrupar varios valores, mas o ideal e um dicionário porque cada valor tem um nome(chave:valor) e fica bem mais intuitivo
+    job_offers_metrics = {
+        "Vaga": keyword,
+        "City": city,
+        "Offers_found": contador_vagas_encontradas,
+        "Offers_repeated": contador_vagas_repetidas,
+        "New_offers": contador_vagas_novas,
+        "Invalid_offers": contador_vagas_invalidas
+    }
+    return job_offers_metrics
