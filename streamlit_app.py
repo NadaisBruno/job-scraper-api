@@ -1,6 +1,5 @@
 # Este modulo tem como funcao pedir JSON à API para usar no streamlit
 
-
 import streamlit as st
 import requests
 from scraper import extract_data
@@ -34,6 +33,8 @@ if run_scraper:
         st.markdown('''
         :blue[**Scraping Summary**]
         ''')
+
+        st.write("Job: ", job_metrics["Vaga"], "| City: ", job_metrics["City"])
 
         col1, col2, col3, col4 = st.columns(4)
 
@@ -87,10 +88,10 @@ filtros_api["limit"] = limit
 # Docs = https://requests.readthedocs.io/en/latest/user/quickstart/?utm_source=chatgpt.com
 response = requests.get(api_url, params=filtros_api, timeout=5)
 if response.status_code == 404:
-    st.warning("Não há resultados para esse filtro")
+    st.info("No saved job offers found for these filters")
     st.stop()
 elif response.status_code != 200:
-    st.error("API indisponivel")
+    st.error("API unavailable")
     st.stop()
 
 # pega no JSON devolvido pela API e transforma em dados Python
