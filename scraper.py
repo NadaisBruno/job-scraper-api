@@ -124,7 +124,7 @@ def extract_data(keyword, city):
     # criamos um dicionário para depois ser apresentado na ui do streamlit com as metricas dos contadores
     # poderia usar listas ou tuplas para agrupar varios valores, mas o ideal e um dicionário porque cada valor tem um nome(chave:valor) ficando bem mais intuitivo
     job_offers_metrics = {
-        "Vaga": keyword,
+        "Job": keyword,
         "City": city,
         "Offers_found": contador_vagas_encontradas,
         "Offers_repeated": contador_vagas_repetidas,

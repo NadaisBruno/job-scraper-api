@@ -34,7 +34,7 @@ if run_scraper:
         :blue[**Scraping Summary**]
         ''')
 
-        st.write("Job: ", job_metrics["Vaga"], "| City: ", job_metrics["City"])
+        st.write("Job: ", job_metrics["Job"], "| City: ", job_metrics["City"])
 
         col1, col2, col3, col4 = st.columns(4)
 
