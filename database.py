@@ -45,7 +45,7 @@ def job_exist(link):
     return vaga_exist
 
 
-job_exist("/15416533/mid-python-developer-presencial-lisboa/")
+# job_exist("/15416533/mid-python-developer-presencial-lisboa/")
 
 
 # Cria a tabela no engine

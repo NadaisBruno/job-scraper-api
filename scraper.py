@@ -1,4 +1,4 @@
-# Este modulo tem como funcao pedir HTML ao `net-empregos
+# Este modulo tem como funcao pedir HTML ao net-empregos
 
 import requests
 from bs4 import BeautifulSoup

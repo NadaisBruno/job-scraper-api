@@ -24,7 +24,7 @@ if run_scraper:
         st.warning("You must enter a value")
         st.stop()
     with st.spinner("Wait a moment..."):
-        # senao correr a def extract_data do modulo scraper.py
+        # senao corre a def extract_data do modulo scraper.py
         job_metrics = extract_data(scrape_keyword, scrape_city)
     st.success("Done")
 
